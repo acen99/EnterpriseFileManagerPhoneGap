@@ -1,0 +1,7 @@
+/* CSS Document */
+
+div[data-role="content"] div.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 6px;
+}

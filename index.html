@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Enterprise File Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+<script type="text/javascript" language="javascript" src="external/jquery/jquery-1.6.1.js"></script>
+<script type="text/javascript" language="javascript" src="external/jquery/json.js"></script>
+
+<script src="external/persistencejs/persistence.js" type="application/javascript"></script>
+<script src="external/persistencejs/persistence.store.sql.js" type="application/javascript"></script>
+
+       <script type="text/javascript">
+            // For cross-domain configuration
+            //var syncUrl = 'http://rhohub-lars-692f63a7.rhosync.com/api/application';
+            var syncUrl = 'http://192.168.0.165:9292/application';
+            //var syncUrl = 'http://192.168.154.53:9292/application';
+
+            // For non-cross-domain use this settings:
+            //var syncUrl = window.location.protocol +'//' +window.location.host +'/application';
+
+            RhoConfig = {
+                appName: 'EnterpriseFileManager',
+                syncServer: syncUrl,
+                logLevel: 'trace'
+            };
+        </script>
+        
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.common.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.protocol.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.domain.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.storage.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.engine.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.notify.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.plugin-extjs.js"></script>
+        <script type="text/javascript" language="javascript" src="external/rhoconnect/rhoconnect.plugin-persistencejs.js"></script>
+      
+        <script type="text/javascript">
+                $(document).bind("mobileinit", function(){
+                    // jQuery-Mobile init options initialization goes here. For example, you may
+                    // enable automatically generated 'Back' buttons on headers this way:
+                    $.mobile.page.prototype.options.addBackBtn = true;
+					
+                    // Look for other init options here:
+                    // http://jquerymobile.com/demos/1.0b1/#/demos/1.0b1/docs/api/globalconfig.html
+				});
+        </script>
+        
+            <link rel="stylesheet" href="external/jqmobile/jquery.mobile-1.0b1.css">
+            <script type="text/javascript" charset="utf-8" src="external/jqmobile/jquery.mobile-1.0b1.js"></script>
+
+       
+        <link href="application.css" rel="stylesheet" type="text/css"/>
+
+        <!-- phonegap -->
+        <script type="text/javascript" language="javascript" src="cordova.js"></script>
+      <!--  <script type="text/javascript" language="javascript" src="phonegap.js"></script> -->
+        <script type="text/javascript" lang="javascript" src="webintent.js"></script>>
+        <script type="text/javascript" language="javascript" src="application.js"></script>
+        
+</head> 
+<body> 
+
+<div data-role="page" id="listPage">
+	<div data-role="header">
+	       <h1>File List</h1>
+            <a id="login_icon" href="#loginPage" class=ui-btn-right data-icon="Star">login</a>
+            <a id="sync_icon" href="#" class=ui-btn-left data-icon="refresh">Sync</a>
+	</div>
+    
+	<div data-role="content">	
+		<ul id="list" data-role="listview">
+          <li>teat</li>
+            <li>seat</li>
+	    </ul>		
+  </div>
+	<div data-role="footer" data-position="fixed">
+	   <h4>Page Footer</h4>
+	</div>
+</div>
+
+<div data-role="page" id="loginPage">
+	<div data-role="header">
+		<h1>Login</h1>
+	</div>
+	<div data-role="content">	
+         <div id="msg" class="error-message"></div>
+		 <div data-role="fieldcontain">
+            <label for="username">User name</label>
+            <input type="text" name="username" id="username"/>
+  
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+         </div>		
+         <a href="#" name="login" data-role="button" data-inline="true">Login</a>
+         
+	</div>
+	<div data-role="footer"  data-position="fixed">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+
+<div data-role="page" id="showPage">
+	<div data-role="header">
+		<h1 id="filename"></h1>
+        <div class="ui-btn-right">
+          <a id="open_icon" href="#" data-role="button" data-icon="Star">Open</a>
+          <a id="download_icon" href="#" data-role="button" data-icon="Star">download</a>
+        </div>
+        
+	</div>
+	<div data-role="content">
+      <ul id="file_detail" data-role="listview">
+      </ul>
+	</div>
+	<div data-role="footer"  data-position="fixed">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>Page Four</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer"  data-position="fixed">
+		<h4>Page Footer</h4>
+	</div
+></div>
+
+</body>
+</html>
